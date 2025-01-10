@@ -1,4 +1,4 @@
-﻿package com.bellseboss.definitions;
+package com.bellseboss.definitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
