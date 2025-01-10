@@ -14,7 +14,7 @@ public class PeryLothPageDefinition {
 
     @Given("that the user navigates to the Peryloth page")
     public void openBrowser(){
-        System.setProperty("webdriver.chrome.driver", "D:/QA_Automatiozacion/serenity-cucumber-pom/src/test/resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         peryLothSteps.openPeryLothPage();
     }
 
