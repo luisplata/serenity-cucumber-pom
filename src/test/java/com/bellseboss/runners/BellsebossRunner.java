@@ -6,11 +6,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/login/inicio_sesion.feature",
+        features = "src/test/resources/features/",
         glue = "com.bellseboss.definitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        plugin = "pretty",
-        tags = "@InicioSesion"
+        plugin = "pretty"
 )
 public class BellsebossRunner {
 }
