@@ -18,9 +18,9 @@ public class PeryLothPageDefinition {
         if (os.contains("win")) {
             System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         } else if (os.contains("mac")) {
-            System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
+            System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver_mac");
         } else if (os.contains("nix") || os.contains("nux") || os.contains("aix")) {
-            System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
+            System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver_linux");
         }
         peryLothSteps.openPeryLothPage();
     }
