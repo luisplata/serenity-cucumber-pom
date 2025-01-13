@@ -24,9 +24,18 @@ jobs:
     - name: Install specific version of Chrome
       run: |
         CHROME_VERSION=131.0.6778.264
-        wget https://dl.google.com/linux/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}-1_amd64.deb
-        sudo dpkg -i google-chrome-stable_${CHROME_VERSION}-1_amd64.deb
-        sudo apt-get install -f -y
+        wget https://storage.googleapis.com/chrome-for-testing-public/${CHROME_VERSION}/linux64/chrome-linux64.zip -O chrome.zip
+        unzip chrome.zip -d chrome
+        sudo mv chrome/chrome-linux64 /usr/local/bin/chrome
+        sudo chmod +x /usr/local/bin/chrome
+
+    - name: Download and unzip ChromeDriver
+      run: |
+        CHROME_VERSION=131.0.6778.264
+        wget https://storage.googleapis.com/chrome-for-testing-public/${CHROME_VERSION}/linux64/chromedriver-linux64.zip -O chromedriver.zip
+        unzip chromedriver.zip -d chromedriver
+        mv chromedriver/chromedriver-linux64/chromedriver src/test/resources/chromedriver_linux
+        chmod +x src/test/resources/chromedriver_linux
 
     - name: Install required utilities
       run: sudo apt-get install -y coreutils findutils
