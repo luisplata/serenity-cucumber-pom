@@ -24,10 +24,10 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y wget unzip libnss3
+        sudo apt-get install -y wget unzip libnss3 libdbus-glib-1-2 gconf2-common
         wget http://archive.ubuntu.com/ubuntu/pool/universe/g/gconf/libgconf-2-4_3.2.6-6ubuntu1_amd64.deb
-        sudo dpkg -i libgconf-2-4_3.2.6-6ubuntu1_amd64.deb
-    
+        sudo dpkg -i libgconf-2-4_3.2.6-6ubuntu1_amd64.deb || sudo apt-get install -f -y
+
     - name: Install specific version of Chrome
       run: |
         CHROME_VERSION=131.0.6778.264
