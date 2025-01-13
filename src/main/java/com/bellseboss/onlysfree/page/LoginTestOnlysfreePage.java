@@ -1,4 +1,4 @@
-﻿package com.bellseboss.onlysfree.page;
+package com.bellseboss.onlysfree.page;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -14,6 +14,6 @@ public class LoginTestOnlysfreePage extends PageObject {
     @FindBy(xpath = "//input[@name='pass']")
     public WebElementFacade inputPassword;
 
-    @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(xpath = "//input[@type='submit']")
     public WebElementFacade btnLogin;
 }

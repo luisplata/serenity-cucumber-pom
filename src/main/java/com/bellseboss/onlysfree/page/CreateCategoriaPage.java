@@ -1,4 +1,4 @@
-﻿package com.bellseboss.onlysfree.page;
+package com.bellseboss.onlysfree.page;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;

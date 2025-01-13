@@ -1,4 +1,4 @@
-﻿package com.bellseboss.onlysfree.definitions;
+package com.bellseboss.definitions.onlysfree;
 
 import com.bellseboss.onlysfree.steps.LoginOnlysfreeSteps;
 import io.cucumber.java.en.Given;
@@ -13,6 +13,7 @@ public class LoginDefinitions {
 
     @Given("I am on the login Onlys Free page")
     public void iAmOnTheLoginOnlysFreePage() {
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         loginOnlysfreeSteps.openLoginPage();
     }
 

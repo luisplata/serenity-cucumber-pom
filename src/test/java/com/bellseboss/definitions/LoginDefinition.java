@@ -20,6 +20,7 @@ public class LoginDefinition {
 
     @When("ingresa las credenciales de acceso correctas")
     public void ingresaLasCredencialesDeAccesoCorrectas() {
+
         loginSteps.insertCredentials("admin", "serenity");
     }
 

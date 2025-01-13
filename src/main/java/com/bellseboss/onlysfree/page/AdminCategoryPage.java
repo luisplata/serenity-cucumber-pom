@@ -1,10 +1,10 @@
-﻿package com.bellseboss.onlysfree.page;
+package com.bellseboss.onlysfree.page;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
-import net.thucydides.core.annotations.findby.By;
-import net.thucydides.core.pages.PageObject;
+
+import java.util.List;
 
 @DefaultUrl("https://www.test.onlysfree.com/admin/categoria")
 public class AdminCategoryPage  extends AdminTestOnlysfreePage {
@@ -19,6 +19,6 @@ public class AdminCategoryPage  extends AdminTestOnlysfreePage {
     public WebElementFacade btnCloseModalNewCategoria;
 
     @FindBy(xpath = "//div[@class='x_content']//div[contains(@class,'profile_details')]/div/div[1]/div[1]/h2")
-    public WebElementFacade titleCategoria;
+    public List<WebElementFacade> titleCategoria;
 
 }
