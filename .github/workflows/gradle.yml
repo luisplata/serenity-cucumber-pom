@@ -17,15 +17,14 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: '17'
-
+        
     - name: Install headless Chrome
       run: |
         CHROME_VERSION=131.0.6778.264
         wget https://storage.googleapis.com/chrome-for-testing-public/${CHROME_VERSION}/linux64/chrome-headless-shell-linux64.zip -O chrome-headless.zip
         unzip chrome-headless.zip -d chrome-headless
-        mkdir /usr/local/bin/headless_shell
-        sudo mv chrome-headless/chrome-headless-shell-linux64/* /usr/local/bin/headless_shell
-        sudo chmod +x /usr/local/bin/*
+        sudo mv chrome-headless/chrome-headless-shell-linux64/headless_shell /usr/local/bin/
+        sudo chmod +x /usr/local/bin/headless_shell
 
     - name: Download and unzip ChromeDriver
       run: |
