@@ -22,8 +22,12 @@ jobs:
         java-version: '17'
 
     - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install -y wget unzip libnss3 libgconf-2-4
-
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y wget unzip libnss3
+        wget http://archive.ubuntu.com/ubuntu/pool/universe/g/gconf/libgconf-2-4_3.2.6-6ubuntu1_amd64.deb
+        sudo dpkg -i libgconf-2-4_3.2.6-6ubuntu1_amd64.deb
+    
     - name: Install specific version of Chrome
       run: |
         CHROME_VERSION=131.0.6778.264
