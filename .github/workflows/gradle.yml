@@ -45,5 +45,5 @@ jobs:
 
     - name: Run tests
       env:
-        CHROME_BIN: /usr/local/bin/headless_shell
+        CHROME_BIN: /usr/local/bin/headless_shell/chrome-headless-shell
       run: ./gradlew clean test --info
