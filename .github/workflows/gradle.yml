@@ -21,20 +21,13 @@ jobs:
       with:
         java-version: '17'
 
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y wget unzip libnss3 libdbus-glib-1-2 gconf2-common
-        wget http://archive.ubuntu.com/ubuntu/pool/universe/g/gconf/libgconf-2-4_3.2.6-6ubuntu1_amd64.deb
-        sudo dpkg -i libgconf-2-4_3.2.6-6ubuntu1_amd64.deb || sudo apt-get install -f -y
-
-    - name: Install specific version of Chrome
+    - name: Install headless Chrome
       run: |
         CHROME_VERSION=131.0.6778.264
-        wget https://storage.googleapis.com/chrome-for-testing-public/${CHROME_VERSION}/linux64/chrome-linux64.zip -O chrome.zip
-        unzip chrome.zip -d chrome
-        sudo mv chrome/chrome-linux64/* /usr/local/bin/
-        sudo chmod +x /usr/local/bin/chrome
+        wget https://storage.googleapis.com/chrome-for-testing-public/${CHROME_VERSION}/linux64/chrome-headless-shell-linux64.zip -O chrome-headless.zip
+        unzip chrome-headless.zip -d chrome-headless
+        sudo mv chrome-headless/chrome-headless-shell-linux64/* /usr/local/bin/
+        sudo chmod +x /usr/local/bin/headless_shell
 
     - name: Download and unzip ChromeDriver
       run: |
@@ -55,5 +48,5 @@ jobs:
 
     - name: Run tests
       env:
-        CHROME_BIN: /usr/local/bin/chrome
+        CHROME_BIN: /usr/local/bin/headless_shell
       run: ./gradlew clean test --info
