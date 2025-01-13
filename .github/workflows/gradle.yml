@@ -22,11 +22,12 @@ jobs:
         java-version: '17'
         distribution: 'adopt'
 
-    - name: Install ChromeDriver
-      run: sudo apt-get install -y chromium-chromedriver
+    - name: Install specific version of Chrome
+      run: |
+        CHROME_VERSION=131.0.6778.264
+        wget https://dl.google.com/linux/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${CHROME_VERSION}-1_amd64.deb
+        sudo dpkg -i google-chrome-stable_${CHROME_VERSION}-1_amd64.deb
+        sudo apt-get install -f -y
 
     - name: Build with Gradle
       run: ./gradlew clean test
-      env:
-        CHROMEWEBDRIVER: /usr/lib/chromium-browser/chromedriver
-        PATH: $CHROMEWEBDRIVER:$PATH
