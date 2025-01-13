@@ -37,6 +37,12 @@ jobs:
         mv chromedriver/chromedriver-linux64/chromedriver src/test/resources/chromedriver_linux
         chmod +x src/test/resources/chromedriver_linux
 
+    - name: Validate Chrome installation
+      run: /usr/local/bin/chrome --version
+
+    - name: Validate ChromeDriver installation
+      run: src/test/resources/chromedriver_linux --version
+
     - name: Install required utilities
       run: sudo apt-get install -y coreutils findutils
 
