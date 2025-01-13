@@ -38,7 +38,7 @@ jobs:
         chmod +x src/test/resources/chromedriver_linux
 
     - name: Validate Chrome installation
-      run: /usr/local/bin/chrome --version
+      run: /usr/local/bin/headless_shell --version
 
     - name: Validate ChromeDriver installation
       run: src/test/resources/chromedriver_linux --version
