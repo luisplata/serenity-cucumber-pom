@@ -26,7 +26,7 @@ jobs:
         CHROME_VERSION=131.0.6778.264
         wget https://storage.googleapis.com/chrome-for-testing-public/${CHROME_VERSION}/linux64/chrome-linux64.zip -O chrome.zip
         unzip chrome.zip -d chrome
-        sudo mv chrome/chrome-linux64 /usr/local/bin/chrome
+        sudo mv chrome/chrome-linux64/* /usr/local/bin/
         sudo chmod +x /usr/local/bin/chrome
 
     - name: Download and unzip ChromeDriver
