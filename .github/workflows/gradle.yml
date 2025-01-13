@@ -21,6 +21,9 @@ jobs:
       with:
         java-version: '17'
 
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y wget unzip libnss3 libgconf-2-4
+
     - name: Install specific version of Chrome
       run: |
         CHROME_VERSION=131.0.6778.264
@@ -47,4 +50,6 @@ jobs:
       run: sudo apt-get install -y coreutils findutils
 
     - name: Run tests
-      run: ./gradlew clean test
+      env:
+        CHROME_BIN: /usr/local/bin/chrome
+      run: ./gradlew clean test --info
