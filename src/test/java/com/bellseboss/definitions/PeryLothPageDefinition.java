@@ -14,7 +14,14 @@ public class PeryLothPageDefinition {
 
     @Given("that the user navigates to the Peryloth page")
     public void openBrowser(){
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+        String os = System.getProperty("os.name").toLowerCase();
+        if (os.contains("win")) {
+            System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+        } else if (os.contains("mac")) {
+            System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
+        } else if (os.contains("nix") || os.contains("nux") || os.contains("aix")) {
+            System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
+        }
         peryLothSteps.openPeryLothPage();
     }
 
